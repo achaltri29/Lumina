@@ -1,5 +1,7 @@
 # Lumina 
 
+**Live Demo:** [Click here to use Lumina](https://lumina-frontend-2hc4.onrender.com)
+
 Lumina is an intelligent chat application that enables users to interact with local AI models (powered by Ollama) through a modern, responsive interface. It features secure user authentication, persistent chat history, and seamless thread management.
 
 ## Features
