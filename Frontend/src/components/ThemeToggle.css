@@ -1,0 +1,64 @@
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-bg);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle-icon {
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+    color: var(--accent-color);
+}
+
+/* Animation for theme switch */
+.theme-toggle-icon {
+    animation: themeSwitch 0.3s ease-in-out;
+}
+
+@keyframes themeSwitch {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(0.8);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 6px;
+    }
+    
+    .theme-toggle-icon {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,127 @@
+.chats {
+    max-width: 1000px;
+    padding: 8rem 8rem 8rem 2rem;
+    margin-right: 2rem;
+}
+
+/* Hide scrollbar when there's no content */
+.chats.no-content {
+    overflow-y: hidden;
+}
+
+/* Show scrollbar only when there's content */
+.chats.has-content {
+    overflow-y: auto;
+}
+
+/* Custom scrollbar styling */
+.chats::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.chats::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+}
+
+
+.gptDiv {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-right: 18rem;
+    max-width: 800px;
+    width: fit-content;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    padding-left: 3rem;
+}
+
+.userMessage {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 18rem;
+    max-width: 800px;
+    width: fit-content;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    margin-right: 3rem;
+}
+
+.hljs {
+    border-radius: 14px !important;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+/* Responsive design for message width */
+@media (max-width: 1200px) {
+    .chats {
+        max-width: 900px;
+    }
+    
+    .gptDiv, .userMessage {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chats {
+        max-width: 100%;
+        padding: 4rem 2rem 4rem 1rem;
+    }
+    
+    .gptDiv, .userMessage {
+        max-width: 85%;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    
+    .userDiv {
+        padding-right: 1rem;
+    }
+    
+    .gptDiv {
+        padding-left: 1rem;
+    }
+    
+    /* Ensure scrollbar behavior is maintained on mobile */
+    .chats.no-content {
+        overflow-y: hidden;
+    }
+    
+    .chats.has-content {
+        overflow-y: auto;
+    }
+}
