@@ -6,7 +6,7 @@ import chatRoutes from "./routes/chat.js";
 import authRoutes from "./routes/auth.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors({
@@ -27,14 +27,14 @@ app.listen(PORT, () => {
     connectDB();
 });
 
-const connectDB = async() => {
+const connectDB = async () => {
     try {
         if (!process.env.MONGODB_URI) {
             throw new Error("MONGODB_URI environment variable is not set");
         }
         await mongoose.connect(process.env.MONGODB_URI);
         console.log("✅ Connected to MongoDB Database!");
-    } catch(err) {
+    } catch (err) {
         console.error("❌ Failed to connect to Database:", err.message);
         console.log("⚠️  Running without database - chat history won't be saved");
         console.log("💡 To fix: Start MongoDB with: brew services start mongodb/brew/mongodb-community");
