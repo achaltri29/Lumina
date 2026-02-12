@@ -19,7 +19,7 @@ const UsageStatsModal = ({ isOpen, onClose }) => {
         }
         let cancelled = false;
         setLoading(true);
-        fetch('http://localhost:8080/api/stats', {
+        fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/stats`, {
             headers: { 'Authorization': `Bearer ${token}` }
         })
             .then(res => res.ok ? res.json() : Promise.reject(new Error('Failed to load stats')))

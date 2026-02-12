@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/auth/me', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/auth/me`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.ok) {
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await fetch('http://localhost:8080/api/auth/login', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (username, email, password) => {
         try {
-            const response = await fetch('http://localhost:8080/api/auth/register', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password })
@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
 
     const updatePreferences = async (preferences) => {
         try {
-            const response = await fetch('http://localhost:8080/api/auth/preferences', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/auth/preferences`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

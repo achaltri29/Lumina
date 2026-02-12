@@ -13,7 +13,7 @@ function Sidebar() {
         try {
             const headers = { "Content-Type": "application/json" };
             if (token) headers["Authorization"] = `Bearer ${token}`;
-            const response = await fetch("http://localhost:8080/api/thread", { headers });
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/thread`, { headers });
             const res = await response.json();
             const filteredData = res.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             setAllThreads(filteredData);
@@ -42,7 +42,7 @@ function Sidebar() {
         try {
             const headers = { "Content-Type": "application/json" };
             if (token) headers["Authorization"] = `Bearer ${token}`;
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`, { headers });
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/thread/${newThreadId}`, { headers });
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -57,7 +57,7 @@ function Sidebar() {
         try {
             const headers = {};
             if (token) headers["Authorization"] = `Bearer ${token}`;
-            const response = await fetch(`http://localhost:8080/api/thread/${threadId}`, { method: "DELETE", headers });
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/thread/${threadId}`, { method: "DELETE", headers });
             const res = await response.json();
             console.log(res);
 
